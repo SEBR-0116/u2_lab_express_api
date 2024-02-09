@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
-const actorSchema = require('./actor')
 const movieSchema = require('./movie')
-//const movieActorSchema = require('./movieActor')
+const actorSchema = require('./actor')
+const reviewSchema = require('./review')
 
 
-const Actor = mongoose.model('actor',actorSchema)
 const Movie = mongoose.model('movie',movieSchema)
-//const movieActor = mongoose.model('movieActor',movieActorSchema)
+const Actor = mongoose.model('actor',actorSchema)
+const Review = mongoose.model('review',reviewSchema)
 
 
 module.exports = {
 
-  Actor,
   Movie,
-  movieActor
+  Actor,
+  Review
 
 }

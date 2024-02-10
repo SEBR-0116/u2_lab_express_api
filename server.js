@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('./db');
-
+const bodyParser = require('body-parser');
+const logger = require('morgan');
 const { Movie } = require('./models')
 
 const movieController = require('./controllers/movieController')
@@ -13,8 +14,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // app.use() middleware here ^ ///////////////////
-// app.use(cors())
-// app.use(express.json())
+//app.use(cors())
+//app.use(express.json())
+app.use(bodyParser.json())
+app.use(logger('dev'))
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
@@ -25,14 +30,8 @@ app.get('/movies', movieController.getAllMovies)
 
 app.get('/movies/:id',movieController.getMovieById)
 
-// server.js
-// app.get('/movies', async (req, res) => {
-//     const movies = await Movie.find()
-//     res.json(movies)
-//   })
+app.post('/movies',movieController.createMovie)
 
-//   app.get('/test',async(req,res) => {
-//     res.send("Testing")
-//   })
+app.put('/movies/:id',movieController.updateMovie)
 
-//   app.get('/plants', planController.getAllPlants)
+app.delete('/movies/:id',movieController.deleteMovie)

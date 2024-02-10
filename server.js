@@ -5,7 +5,8 @@ const logger = require('morgan');
 const { Movie } = require('./models')
 
 const movieController = require('./controllers/movieController')
-const planController = require('./controllers/plantController')
+const actorController = require('./controllers/actorController')
+const reviewController = require('./controllers/reviewController')
 
 // require() imports and middleware here ^ ///////
 
@@ -26,6 +27,11 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
 app.get('/', (req, res) => res.send('This is our landing page!'))
 
+
+//Bonus I - AAU I want to Create, Update, and Delete my Actors, Movies, 
+// and Reviews using either ThunderClient or a query.js file
+////Movie CURD operation
+
 app.get('/movies', movieController.getAllMovies)
 
 app.get('/movies/:id',movieController.getMovieById)
@@ -35,3 +41,23 @@ app.post('/movies',movieController.createMovie)
 app.put('/movies/:id',movieController.updateMovie)
 
 app.delete('/movies/:id',movieController.deleteMovie)
+
+
+////Actor CURD operator
+
+app.get('/actors',actorController.getAllActors)
+
+app.get('/actors/:id',actorController.getActorById)
+
+app.post('/actors',actorController.createActor)
+
+app.put('/actors/:id',actorController.updateActor)
+
+app.delete('/actors/:id',actorController.deleteActor)
+
+
+/////Review CURD operator
+
+app.get('/reviews',reviewController.getAllReview)
+
+app.get('/reviews/:id',reviewController.getReviewById)

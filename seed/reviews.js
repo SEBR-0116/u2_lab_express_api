@@ -4,8 +4,13 @@ const Review=require("../models/review")
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const main= async () =>{
-    await db.dropDatabase()
-    console.log('Database dropped succesfully')
+    // await Review.collection.drop(function(err){
+    //     if (err) {
+    //         console.log('Error dropping collection: ', err);
+    //     } else {
+    //         console.log('Collection dropped successfully');
+    //     }
+    // })
     const reviews=[
         {
          movieName: 'Dark Knight',
@@ -80,6 +85,13 @@ const main= async () =>{
 }
 
 const run = async () => {
+    await Review.collection.drop(function(err){
+        if (err) {
+            console.log('Error dropping collection: ', err);
+        } else {
+            console.log('Collection dropped successfully');
+        }
+    })
     await main();
     db.close();
   };

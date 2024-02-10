@@ -7,7 +7,7 @@ const Actor = new Schema(
         birthday: { type: String, required: true },
         alive:{type: Boolean, required:true},
         image: { type: String, required: true },
-        movie:{type: Schema.Types.ObjectId, ref: 'movie_id'}
+        movie:[{type: Schema.Types.ObjectId, ref: 'movie_id'}]
     },
     { timestamps: true },
 )

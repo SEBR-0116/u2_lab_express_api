@@ -61,3 +61,19 @@ app.delete('/actors/:id',actorController.deleteActor)
 app.get('/reviews',reviewController.getAllReview)
 
 app.get('/reviews/:id',reviewController.getReviewById)
+
+app.post('/reviews',reviewController.createReview)
+
+app.put('/reviews/:id',reviewController.updateReview)
+
+app.delete('/reviews/:id',reviewController.deleteReview)
+
+//Bonus I
+//AAU I want to sort my reviews by ascending or descending order
+app.get('/reviews/sort/:type',reviewController.getReviewBySortTypeAsceorDesc) 
+
+
+
+//Bonus I
+//AAU I want to sort my movies by newest or oldest
+app.get('/movies/sort/:type',movieController.getMoviesBySortNeworOld)

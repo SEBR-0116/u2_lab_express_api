@@ -62,10 +62,32 @@ const deleteMovie = async (request,response) => {
     }
 }
 
+//Bonus I
+//AAU I want to sort my movies by newest or oldest
+const getMoviesBySortNeworOld = async (request,response) => {
+    try{
+        if((request.params.type).toLowerCase()==='old'){
+
+            const movies = await Movie.find().sort({year_release: 1})
+            return response.json(movies)
+
+        }else if((request.params.type).toLowerCase()==='new')
+        {
+            const movies = await Movie.find().sort({year_release: -1})
+            return response.json(movies)
+        }else{
+            response.status(400).send(`Bad Request : " ${request.params.type} " is an invalid request`)
+        }
+    }catch(error){
+        return response.status(500).send(error.message)
+    }
+}
+
 module.exports = {
     getAllMovies,
     getMovieById,
     createMovie,
     updateMovie,
-    deleteMovie
+    deleteMovie,
+    getMoviesBySortNeworOld
 }

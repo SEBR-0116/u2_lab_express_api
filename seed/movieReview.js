@@ -6,63 +6,63 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
 
-    const movie_1 = await Movie.find({name:"kaaka Kaaka"})
-    const movie_2 = await Movie.find({name:"LEO"})
-    const movie_3 = await Movie.find({name:"VTV"})
-    const movie_4 = await Movie.find({name:"Vikram"})
-    const movie_5 = await Movie.find({name:"Jailer"})
-
+    // const movie_1 = await Movie.find({name:"kaaka Kaaka"})
+    // const movie_2 = await Movie.find({name:"LEO"})
+    // const movie_3 = await Movie.find({name:"VTV"})
+    // const movie_4 = await Movie.find({name:"Vikram"})
+    // const movie_5 = await Movie.find({name:"Jailer"})
+    
     const reviews = [
 
         {
         score: 100,
         comments: "Good Movie",
-        Movie_id: movie_1.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b1"
         },
         {
         score: 99,
         comments: "Great Movie",
-        Movie_id: movie_1.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b1"
         },
         {
         score: 85,
         comments: "Good Movie",
-        Movie_id: movie_2.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b2"
         },
         {
         score: 90,
         comments: "Great Movie",
-        Movie_id: movie_2.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b2"
         },
         {
         score: 89,
         comments: "I like it",
-        Movie_id: movie_3.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b3"
         },
         {
         score: 92,
         comments: "My faourit Movie",
-        Movie_id: movie_3.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b3"
         },
         {
         score: 91,
         comments: "Superb Movie",
-        Movie_id: movie_4.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b4"
         },
         {
         score: 99,
         comments: "Great Movie",
-        Movie_id: movie_4.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b4"
         },
         {
         score: 100,
         comments: "Good Movie",
-        Movie_id: movie_5.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b5"
         },
         {
         score: 99,
         comments: "Great Movie",
-        Movie_id: movie_5.Movie_id
+        movie_id: "65c68914b34b43ec63a7b5b5"
         }
     ]
 

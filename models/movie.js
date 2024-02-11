@@ -10,7 +10,7 @@ const Movie = new Schema(
         year_released : {type: String, required: true},
         description : {type: String, required: true},
         image : {type: String, required: true},
-        // reviews : [{type: Schema.Types.ObjectId, ref: 'review_id'}],
+        reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
         // actors : [{type: Schema.Types.ObjectId, ref: 'actor_id'}]
     },
     { timestamps: true }

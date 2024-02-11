@@ -6,8 +6,13 @@ const Actor = require('../models/actor')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
+    const theHoldovers = await Movie.findOne({ title: 'The Holdovers' })
+    const americanFiction = await Movie.findOne({ title: 'American Fiction' })
+    const theZoneOfInterest = await Movie.findOne({ title: 'The Zone of Interest' })
 
-    // const reviews = await Review.find({ movie_id: { $in: [theHoldovers._id, americanFiction._id, theZoneOfTruth._id, barbie._id, oppenheimer._id, poorThings._id, pastLives._id, anatomyOfAFall._id, maestro._id, killers._id] } });
+    const holdoversReviews = await Review.find({ movie: theHoldovers._id });
+    const americanFictionReviews = await Review.find({ movie: americanFiction._id });
+    const zoneOfInterestReviews = await Review.find({ movie: theZoneOfInterest._id });
     // const actors = await Actor.find({ movie_id: { $in: [theHoldovers._id, americanFiction._id, theZoneOfTruth._id, barbie._id, oppenheimer._id, poorThings._id, pastLives._id, anatomyOfAFall._id, maestro._id, killers._id] } });
 
     const movies = [
@@ -19,7 +24,7 @@ const main = async () => {
             year_released : '2023',
             description : "A cranky history teacher at a remote prep school is forced to remain on campus over the holidays with a troubled student who has no place to go and a grieving cook.",
             image : "https://m.media-amazon.com/images/M/MV5BNDc2MzNkMjMtZDY5NC00NmQ0LWI1NjctZjRhNWIzZjc4MGRiXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
-            // reviews : reviews.map(review => review._id),
+            reviews : holdoversReviews.map(review => review._id),
             // actors : actors.map(actor => actor._id)
         },
         {
@@ -30,7 +35,7 @@ const main = async () => {
             year_released : '2023',
             description : "A novelist who's fed up with the establishment profiting from Black entertainment uses a pen name to write a book that propels him into the heart of the hypocrisy and madness he claims to disdain.",
             image : "https://m.media-amazon.com/images/M/MV5BZDlkZmRlYTctNGJmNy00MjVkLThjZDQtMWY5Zjg2NjlhZDZkXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg",
-            // reviews : reviews.map(review => review._id),
+            reviews : americanFictionReviews.map(review => review._id),
             // actors : actors.map(actor => actor._id)
         },
         {
@@ -41,7 +46,7 @@ const main = async () => {
             year_released : '2023',
             description : "Auschwitz commandant Rudolf Höss and his wife Hedwig strive to build a dream life for their family in a house and garden beside the camp.",
             image : "https://m.media-amazon.com/images/M/MV5BYzRmOGQwZjktYjM2Ni00M2NmLWFlZDYtZGFhM2RkM2VhZDI1XkEyXkFqcGdeQXVyMTM1NjM2ODg1._V1_.jpg",
-            // reviews : reviews.map(review => review._id),
+            reviews : zoneOfInterestReviews.map(review => review._id),
             // actors : actors.map(actor => actor._id)
         },
         {

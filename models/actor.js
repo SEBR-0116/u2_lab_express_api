@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const { Schema } = require('mongoose')
 
 const Actor = new Schema (
@@ -6,9 +7,9 @@ const Actor = new Schema (
         age : { type: Number, required: true },
         alive : { type: Boolean, required: true },
         image: { type: String, required: true },
-        movie_id : {type: Schema.Types.ObjectId, ref: 'movie_id'}
+        movie : {type: Schema.Types.ObjectId, ref: 'Movie'}
     },
     { timestamps: true }
 )
 
-module.exports = Actor
+module.exports = mongoose.model('actors', Actor)

@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const { Schema } = require('mongoose')
 
 const Movie = new Schema(
@@ -9,10 +10,10 @@ const Movie = new Schema(
         year_released : {type: String, required: true},
         description : {type: String, required: true},
         image : {type: String, required: true},
-        reviews : [{type: Schema.Types.ObjectId, ref: 'review_id'}],
-        actors : [{type: Schema.Types.ObjectId, ref: 'actor_id'}]
+        // reviews : [{type: Schema.Types.ObjectId, ref: 'review_id'}],
+        // actors : [{type: Schema.Types.ObjectId, ref: 'actor_id'}]
     },
     { timestamps: true }
 )
 
-module.exports = Movie
+module.exports = mongoose.model('movies', Movie)

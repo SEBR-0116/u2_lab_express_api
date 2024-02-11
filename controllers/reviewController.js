@@ -19,7 +19,7 @@ const getReviewById = async (request,response) => {
         if(review){
            return response.json(review)
         }
-            return response.status(404).send('Review with the specified ID does not exisit')
+            return response.status(404).send(`Bad Request: Review with the ${request.params} does not exisit`)
         } catch (error){
             return response.status(500).send(error.message)
         }

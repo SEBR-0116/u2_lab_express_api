@@ -42,6 +42,9 @@ app.put('/movies/:id',movieController.updateMovie)
 
 app.delete('/movies/:id',movieController.deleteMovie)
 
+///Get all the relevent details of Actor and Review for a perticilar Movie base on Id
+app.get('/movie/:id',movieController.getAllActorReviewofMovie)
+
 
 ////Actor CURD operator
 

@@ -1,5 +1,5 @@
 const { response } = require('express');
-const  { Movie }  = require('../models');
+const  { Movie,Actor,Review }  = require('../models');
 
 const getAllMovies = async (req, res) => {
     try {
@@ -17,7 +17,7 @@ const getMovieById = async (request,response) => {
         if(movies){
             return response.json(movies)
         }
-        return response.status(404).send('Movie with the specified ID does not exisit')
+        return response.status(404).send(`Bad Request: Movie with the ${request.params} does not exisit`)
     } catch (error){
         return response.status(500).send(error.message)
     }
@@ -62,6 +62,25 @@ const deleteMovie = async (request,response) => {
     }
 }
 
+const getAllActorReviewofMovie = async (request,response) => {
+
+    try{
+        const { id } = request.params
+        const movieBy_id = await Movie.findById(id)
+        console.log("Movie Id : ", movieBy_id)
+        const actorBy_movie_id = await Actor.find({movie_id:id})
+        console.log("Actor by Movie Id : ", actorBy_movie_id)
+        const reviewBy_movie_id = await Review.find({movie_id:id})
+        console.log("Review by Movie Id : ", reviewBy_movie_id)
+
+    }
+    catch(error)
+    {
+        return response.status(500).send(error.message)
+    }
+
+}
+
 //Bonus I
 //AAU I want to sort my movies by newest or oldest
 const getMoviesBySortNeworOld = async (request,response) => {
@@ -83,11 +102,14 @@ const getMoviesBySortNeworOld = async (request,response) => {
     }
 }
 
+
+
 module.exports = {
     getAllMovies,
     getMovieById,
     createMovie,
     updateMovie,
     deleteMovie,
-    getMoviesBySortNeworOld
+    getMoviesBySortNeworOld,
+    getAllActorReviewofMovie
 }

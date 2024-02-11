@@ -18,7 +18,7 @@ const getActorById = async (request,response) => {
         if(actor){
            return response.json(actor)
         }
-            return response.status(404).send('Movie with the specified ID does not exisit')
+            return response.status(404).send(`Bad request : Actor with the ${request.params} does not exisit`)
         } catch (error){
             return response.status(500).send(error.message)
         }

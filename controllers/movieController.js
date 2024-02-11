@@ -23,10 +23,23 @@ const getMovieById = async (req, res) => {
     }
 }
 
-
+const getMovieByTitle = async (req, res) => {
+    try {
+        const { title } = req.params;
+        const movie = await Movie.findOne({ title });
+        if (movie) {
+            res.json(movie);
+        } else {
+            res.status(404).send('Movie not found');
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
 
 module.exports = {
     getAllMovies,
     getMovieById,
+    getMovieByTitle
 
 }

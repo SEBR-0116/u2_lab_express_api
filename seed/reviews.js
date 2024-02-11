@@ -48,22 +48,8 @@ const main = async () => {
             movie : theZoneOfInterest._id   
         },
     ]
-    // Check for existing reviews to prevent duplicates
-    const existingReviews = await Review.find({ $or: reviews.map(review => ({ score: review.score, comment: review.comment, movie: review.movie })) })
-
-    // Filter out reviews that already exist
-    const newReviews = reviews.filter(review => !existingReviews.some(existingReview =>
-        existingReview.score === review.score &&
-        existingReview.comment === review.comment &&
-        existingReview.movie.toString() === review.movie.toString()
-    ));
-
-    if (newReviews.length > 0) {
-        await Review.insertMany(newReviews)
-        console.log(`${newReviews.length} new reviews inserted!`)
-    } else {
-        console.log('No new reviews to insert.')
-    }
+    await Movie.insertMany(movies)
+    console.log('Inserted movies!')
 }
 const run = async () => {
     await main()

@@ -11,7 +11,7 @@ const Movie = new Schema(
         description : {type: String, required: true},
         image : {type: String, required: true},
         reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
-        // actors : [{type: Schema.Types.ObjectId, ref: 'actor_id'}]
+        actors : [{type: Schema.Types.ObjectId, ref: 'Actor'}]
     },
     { timestamps: true }
 )

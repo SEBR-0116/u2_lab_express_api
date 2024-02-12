@@ -84,6 +84,8 @@ const main= async () =>{
 }
 
 const run = async () => {
+
+    // Got this function from Chat GPT to not repopulate the same data. I know with sequelize, they have up and down functions to not repeat data, along with unique contraints, however I couldn't find anything like that for mongoose.
     await Actor.collection.drop(function(err){
         if (err) {
             console.log('Error dropping collection: ', err);

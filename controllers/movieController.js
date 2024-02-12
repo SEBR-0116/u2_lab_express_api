@@ -26,7 +26,7 @@ const getActorById = async (req, res) => {
 
 const getAllMovies = async (req, res) => {
     try {
-        const movies = await Movie.find()
+        const movies = await Movie.find().sort({releaseYear: 'desc'})
         res.json(movies)
     } catch (error) {
         return res.status(500).send(error.message);
@@ -48,7 +48,7 @@ const getMovieById = async (req, res) => {
 
 const getAllReviews = async (req, res) => {
     try {
-        const reviews = await Review.find()
+        const reviews = await Review.find().sort({movieName: 'asc'})
         res.json(reviews)
     } catch (error) {
         return res.status(500).send(error.message);

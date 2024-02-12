@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!--Axios call-->
+       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+       <script defer src="js/movie.js"></script>   
+       <link rel="stylesheet" type="text/css" href="css/movie.css">
+
+    <title>Kolliwood Movies</title>
+</head>
+<body>
+    <div class="main"></div>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/movie.html">Movie</a></li>
+            <li><a href="/actor.html">Actor</a></li>
+            <li><a href="/review.html">Review</a></li>
+          </ul>
+        </nav>
+      </header>
+    <h1>Welcome to Kollywood</h1>
+    <div class="side-by-side">
+        <div class="side1">Search Movies
+            <div class="search-content">
+                <form>
+                    <input id="input-Movie" value="" placeholder="Enter movie name to search !">
+                    <input id="search-Movie-btn" class="btn-bg-color" type="button" value="Search"><br>
+                </form>
+                <div>Movie Information</div>
+                <div class="movie-info"></div>
+            </div>
+        </div>
+        <div class="side2">Movie Gallery
+            <div class="movie-image"></div>
+            <div class="movie-description"></div>
+        </div>
+        <div class="side3">Movie Profile
+            
+        </div>
+      </div>
+  
+      <div class="movies-list-table">
+        <div class="content">Casting List
+            <div class="list-cast"></div>
+            
+        </div>
+        <div class="content">Content 2</div>
+        <div class="content">Content 3</div>
+      </div>
+</body>
+</html>

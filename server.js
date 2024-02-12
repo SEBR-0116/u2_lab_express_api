@@ -3,6 +3,8 @@ const db = require('./db');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const { Movie } = require('./models')
+const cors = require('cors')
+
 
 const movieController = require('./controllers/movieController')
 const actorController = require('./controllers/actorController')
@@ -15,10 +17,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // app.use() middleware here ^ ///////////////////
-//app.use(cors())
+app.use(cors())
 //app.use(express.json())
 app.use(bodyParser.json())
 app.use(logger('dev'))
+
+
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -45,6 +49,10 @@ app.delete('/movies/:id',movieController.deleteMovie)
 ///Get all the relevent details of Actor and Review for a perticilar Movie base on Id
 app.get('/movie/:id',movieController.getAllActorReviewofMovie)
 
+app.get('/movies/movie/:title',movieController.getMovieByTitle)
+
+app.get('/movies/release/:year',movieController.getMovieByYear)
+
 
 ////Actor CURD operator
 
@@ -57,6 +65,10 @@ app.post('/actors',actorController.createActor)
 app.put('/actors/:id',actorController.updateActor)
 
 app.delete('/actors/:id',actorController.deleteActor)
+
+app.get('/actors/actor/:name',actorController.getActorByName)
+
+app.get('/actors/movie/:id',actorController.getActorDetailsForMovie)
 
 
 /////Review CURD operator

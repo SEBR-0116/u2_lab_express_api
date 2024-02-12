@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <!--Axios call-->
+           <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+           <script defer src="js/actor.js"></script>   
+           <link rel="stylesheet" type="text/css" href="css/actor.css">
+    
+        <title>Kolliwood Movies</title>
+    </head>
+    <body>
+        <div class="main"></div>
+        <header>
+            <nav>
+              <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/movie.html">Movie</a></li>
+                <li><a href="/actor.html">Actor</a></li>
+                <li><a href="/review.html">Review</a></li>
+              </ul>
+            </nav>
+          </header>
+        <h1>Welcome to Kollywood</h1>
+        <div class="side-by-side">
+          <div class="side1">Search Actor
+              <div class="search-content">
+                  <form>
+                      <input id="input-actor" value="" placeholder="Enter actor name to search !">
+                      <!-- <button id="search-actor-btn" type="submit">Search</button> -->
+                      <input id="search-actor-btn" class="btn-bg-color" type="button" value="Search"><br>
+                  </form>
+                  <div>Actor Bio</div>
+                  <div class="actor-info"></div>
+              </div>
+          </div>
+          <div class="side2">Actor Gallery
+              <div id="actor-img" class="actor-image"></div>
+              <div class="actor-description"></div>
+          </div>
+          <div class="side3">Actor Profile
+            <form class="actor-form">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+      
+              <label for="dob">Date of Birth:</label>
+              <input type="text" id="dob" name="dob" placeholder="YYYY-MM-DD">
+      
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+      
+              <label for="rank">Rank:</label>
+              <input type="number" id="rank" name="rank">
+      
+              <label for="hit_blockbuster">Hit Blockbuster:</label>
+              <input type="number" id="hit_blockbuster" name="hit_blockbuster">
+      
+              <label for="image">Image URL:</label>
+              <input type="text" id="image" name="image">
+      
+              <label for="nationality">Nationality:</label>
+              <input type="text" id="nationality" name="nationality">
+      
+              <label for="is_active">Active:</label>
+              <input type="checkbox" id="is_active" name="is_active"><br>
+      
+              <button id="submit" type="submit">Submit</button>
+          </form>
+          </div>
+        </div>
+    
+        <div class="actors-list-table">
+          <div class="content">Actors Galary
+              <div id="list-cast">
+
+              </div>
+              
+          </div>
+          <div class="content">Content 2
+            
+          </div>
+          <!-- <div class="content">Content 3</div> -->
+        </div>
+  </body>
+</html>

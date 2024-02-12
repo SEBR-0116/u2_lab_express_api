@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: large;
+    font-weight: 300;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .side-by-side {
+    display: flex;
+    height: 600px;
+    max-height: 600px;
+  }
+  
+  .side1 {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+    width: 20%;
+  
+  }
+  
+  .side2 {
+    flex: 1;
+    padding: 20px;
+    background-color: #e0e0e0;
+    width: 50%;
+    white-space: nowrap ;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    
+  }
+
+  .side3 {
+    flex: 1;
+    padding: 20px;
+    background-color: #e0e0e0;
+    width: 30%;
+    white-space: nowrap ;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+  
+
+  
+  .top-down {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    padding: 20px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    white-space: nowrap ;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+
+  /* img */
+  .movie-image{
+
+    width: 50px;
+    max-height: 50px;
+    display: block;
+    margin: 0;
+
+  }
+
+  .font-style{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .list-cast{
+    height: 150px;
+    width: 100%;
+  }
+
+  .img-Size{
+    height: 350px;
+    width: 250px;
+  }
+
+  
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+.btn-bg-color{
+background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

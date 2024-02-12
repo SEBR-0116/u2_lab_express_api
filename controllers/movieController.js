@@ -1,5 +1,6 @@
 const { response } = require('express');
 const  { Movie,Actor,Review }  = require('../models');
+const { json } = require('body-parser');
 
 const getAllMovies = async (req, res) => {
     try {
@@ -67,12 +68,33 @@ const getAllActorReviewofMovie = async (request,response) => {
     try{
         const { id } = request.params
         const movieBy_id = await Movie.findById(id)
-        console.log("Movie Id : ", movieBy_id)
-        const actorBy_movie_id = await Actor.find({movie_id:id})
-        console.log("Actor by Movie Id : ", actorBy_movie_id)
-        const reviewBy_movie_id = await Review.find({movie_id:id})
-        console.log("Review by Movie Id : ", reviewBy_movie_id)
+        // //console.log("Movie Id : ", movieBy_id)
+        // const actorBy_movie_id = await Actor.find({movie_id:id})
+        // //console.log("Actor by Movie Id : ", actorBy_movie_id)
+        // const reviewBy_movie_id = await Review.find({movie_id:id})
+        // //console.log("Review by Movie Id : ", reviewBy_movie_id)
+        // const mergedResult = {...movieBy_id,...actorBy_movie_id,...reviewBy_movie_id}
+        // //console.log(`merger Result : ${mergedResult}`)
 
+        const movie_Details_of_Actors_n_Reviews = await Movie.findOne({
+            where: {movie_id:id },
+            include : [
+                {
+                    models: Actor,
+                    as: 'actors'
+                },
+                {
+                    models: Review,
+                    as: 'reviews',
+                },
+            ],
+        })
+
+        if(!movieBy_id){
+            return response.status(404).send({ error: 'Movie details not found'})
+        }
+        return response.json(movie_Details_of_Actors_n_Reviews) 
+        console.log(" REsuoltttttttt : ",json(movie_Details_of_Actors_n_Reviews))
     }
     catch(error)
     {
@@ -102,7 +124,42 @@ const getMoviesBySortNeworOld = async (request,response) => {
     }
 }
 
+//Get Movie by title
+const getMovieByTitle = async (request,response) => {
+    try{
+        const req_title = request.params
+        const moviesBy_title = await Movie.find({title: {$regex: new RegExp(req_title.title,'i')}}) 
+        if(moviesBy_title){
+            return response.json(moviesBy_title)
+        }else{
+            return response.status(404).send(` There is no movies under ${request.params} name`)
+        }
+    }catch(error){
+        return response.status(500).send(error.message)
+    }
+}
 
+//Get Movie by year
+const getMovieByYear = async (request,response) => {
+    try{
+        const req_movie_year = request.params.year
+        const moviesBy_year = await Movie.find({
+            $expr: {
+                $eq: [
+                    { $year: "$year_release" }, 
+                    req_movie_year
+                ]
+            }
+        }) 
+        if(moviesBy_year){
+            response.json(moviesBy_year)
+        }else{
+            response.status(404).send(` There is no movies found released on ${request.params} year `)
+        }
+    }catch(error){
+        return response.status(500).send(error.message)
+    }
+}
 
 module.exports = {
     getAllMovies,
@@ -111,5 +168,7 @@ module.exports = {
     updateMovie,
     deleteMovie,
     getMoviesBySortNeworOld,
-    getAllActorReviewofMovie
+    getAllActorReviewofMovie,
+    getMovieByTitle,
+    getMovieByYear
 }

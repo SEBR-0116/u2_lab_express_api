@@ -62,10 +62,67 @@ const deleteActor = async (request,response) => {
         return response.status(500).send(error.message)
     }
 }
+
+
+//Get Movie by title
+const getActorByName = async (request,response) => {
+    try{
+        const req_name = request.params
+        const actorsBy_Name = await Actor.find({name: {$regex: new RegExp(req_name.name,'i')}}) 
+        if(actorsBy_Name ){
+            return response.json(actorsBy_Name )
+        }
+            return response.status(404).send(` There is no actors found under ${request.params.name} name`)
+        
+    }catch(error){
+        return response.status(500).send(error.message)
+    }
+}
+
+
+
+
+//Get Movie by year
+const getActorByAge = async (request,response) => {
+    try{
+        const req_Actor_age = request.params
+        const moviesBy_year = await Actor.find({
+            $expr: {
+                $eq: [
+                    { $year: "$year_release" }, 
+                    req_movie_year
+                ]
+            }
+        }) 
+        if(moviesBy_year){
+            response.json(moviesBy_year)
+        }else{
+            response.status(404).send(` There is no movies found released on ${request.params} year `)
+        }
+    }catch(error){
+        return response.status(500).send(error.message)
+    }
+}
+
+const getActorDetailsForMovie = async (request,response) =>{
+    try{
+        const req_movie_details = request.params
+        console.log('================')
+        console.log(req_movie_details)
+        console.log('================')
+
+    }catch(error){
+        return response.status(500).send(error.message)
+        }
+}
+
+
 module.exports = {
     getAllActors,
     getActorById,
     createActor,
     updateActor,
-    deleteActor
+    deleteActor,
+    getActorByName,
+    getActorDetailsForMovie
 }

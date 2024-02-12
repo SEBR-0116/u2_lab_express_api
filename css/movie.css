@@ -135,3 +135,33 @@ background-color: #4caf50;
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+#ul-long{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+ 
+} 
+
+#ul-long li{
+  text-align: center;
+  margin-right: 10px;
+}
+
+/* .actors-list-table{
+  overflow-: scroll;
+  scroll-behavior: smooth;
+} */
+
+.content{
+  white-space: nowrap ;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.img-Size{
+  height: 250px;
+  width: 150px;
+}

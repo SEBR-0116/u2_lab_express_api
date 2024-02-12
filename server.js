@@ -92,3 +92,5 @@ app.get('/reviews/sort/:type',reviewController.getReviewBySortTypeAsceorDesc)
 //Bonus I
 //AAU I want to sort my movies by newest or oldest
 app.get('/movies/sort/:type',movieController.getMoviesBySortNeworOld)
+
+app.get('/reviews/movie/:id',reviewController.getReviewsDetailsForMovie)

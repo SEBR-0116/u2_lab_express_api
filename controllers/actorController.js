@@ -82,34 +82,39 @@ const getActorByName = async (request,response) => {
 
 
 
-//Get Movie by year
-const getActorByAge = async (request,response) => {
-    try{
-        const req_Actor_age = request.params
-        const moviesBy_year = await Actor.find({
-            $expr: {
-                $eq: [
-                    { $year: "$year_release" }, 
-                    req_movie_year
-                ]
-            }
-        }) 
-        if(moviesBy_year){
-            response.json(moviesBy_year)
-        }else{
-            response.status(404).send(` There is no movies found released on ${request.params} year `)
-        }
-    }catch(error){
-        return response.status(500).send(error.message)
-    }
-}
+// //Get Movie by year
+// const getActorByAge = async (request,response) => {
+//     try{
+//         const req_Actor_age = request.params
+//         const moviesBy_year = await Actor.find({
+//             $expr: {
+//                 $eq: [
+//                     { $year: "$year_release" }, 
+//                     req_movie_year
+//                 ]
+//             }
+//         }) 
+//         if(moviesBy_year){
+//             response.json(moviesBy_year)
+//         }else{
+//             response.status(404).send(` There is no movies found released on ${request.params} year `)
+//         }
+//     }catch(error){
+//         return response.status(500).send(error.message)
+//     }
+// }
 
 const getActorDetailsForMovie = async (request,response) =>{
     try{
-        const req_movie_details = request.params
-        console.log('================')
-        console.log(req_movie_details)
-        console.log('================')
+        const req_movie_details = request.params.id
+        // console.log('================')
+        // console.log(req_movie_details)
+        // console.log('================')
+        const actors_detail_Movie =  await Actor.find({movie_id: req_movie_details})
+        if(actors_detail_Movie){
+            return response.json(actors_detail_Movie)
+        }
+        return response.status(404).send(`There is no actors found for ${request.params} id`)
 
     }catch(error){
         return response.status(500).send(error.message)

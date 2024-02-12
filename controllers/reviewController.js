@@ -84,32 +84,22 @@ const getReviewBySortTypeAsceorDesc = async (request,response)=>{
     }
 }
 
-// const getReviewSortByAsce = async (request,response) => {
+const getReviewsDetailsForMovie = async (request,response) =>{
 
-//         try{
-//             const reviews = await Review.find().sort({createdAt: 1})
-//             return response.json(reviews)
-                
-//         }catch(error){
-//             return response.status(500).send(error.message)
-      
-//     }
-   
-// }
+    try{
+        const req_movie_details = request.params.id
+        const review_details_movie = await Review.find({movie_id: req_movie_details})
+        if(review_details_movie){
+            return response.json(review_details_movie)
+        }
 
+        return response.status(404).send(`There is no reviews found for ${request.params} id`)
 
-// const getReviewSortByDesc = async (request,response) => {
+    }catch(error){
+        return response.status(500).send(error.message)
+    }
 
-//     try{
-//         const reviews = await Review.find().sort({createdAt: -1})
-//         return response.json(reviews)
-            
-//     }catch(error){
-//         return response.status(500).send(error.message)
-  
-// }
-
-// }
+}
 
 module.exports = {
 
@@ -118,6 +108,7 @@ module.exports = {
     createReview,
     updateReview,
     deleteReview,
-    getReviewBySortTypeAsceorDesc
+    getReviewBySortTypeAsceorDesc,
+    getReviewsDetailsForMovie
 
 }

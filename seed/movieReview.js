@@ -17,52 +17,72 @@ const main = async () => {
         {
         score: 100,
         comments: "Good Movie",
-        movie_id: "65c68914b34b43ec63a7b5b1"
+        movie_id: "65c9673cf48b17d551096c64"
         },
         {
         score: 99,
         comments: "Great Movie",
-        movie_id: "65c68914b34b43ec63a7b5b1"
+        movie_id: "65c9673cf48b17d551096c64"
         },
+        {
+          score: 100,
+          comments: "Good Movie",
+          movie_id: "65c9673cf48b17d551096c64"
+          },
+          {
+          score: 99,
+          comments: "Great Movie",
+          movie_id: "65c9673cf48b17d551096c64"
+          },
         {
         score: 85,
         comments: "Good Movie",
-        movie_id: "65c68914b34b43ec63a7b5b2"
+        movie_id: "65c9673cf48b17d551096c65"
         },
         {
         score: 90,
         comments: "Great Movie",
-        movie_id: "65c68914b34b43ec63a7b5b2"
+        movie_id: "65c9673cf48b17d551096c65"
         },
         {
         score: 89,
         comments: "I like it",
-        movie_id: "65c68914b34b43ec63a7b5b3"
+        movie_id: "65c9673cf48b17d551096c66"
         },
         {
         score: 92,
         comments: "My faourit Movie",
-        movie_id: "65c68914b34b43ec63a7b5b3"
+        movie_id: "65c9673cf48b17d551096c66"
+        },
+        {
+        score: 89,
+        comments: "I like it",
+        movie_id: "65c9673cf48b17d551096c66"
+        },
+        {
+        score: 92,
+        comments: "My faourit Movie",
+        movie_id: "65c9673cf48b17d551096c66"
         },
         {
         score: 91,
         comments: "Superb Movie",
-        movie_id: "65c68914b34b43ec63a7b5b4"
+        movie_id: "65c9673cf48b17d551096c68"
         },
         {
         score: 99,
         comments: "Great Movie",
-        movie_id: "65c68914b34b43ec63a7b5b4"
+        movie_id: "65c9673cf48b17d551096c68"
         },
         {
         score: 100,
         comments: "Good Movie",
-        movie_id: "65c68914b34b43ec63a7b5b5"
+        movie_id: "65c9673cf48b17d551096c67"
         },
         {
         score: 99,
         comments: "Great Movie",
-        movie_id: "65c68914b34b43ec63a7b5b5"
+        movie_id: "65c9673cf48b17d551096c67"
         }
     ]
 

@@ -35,6 +35,18 @@ const getMovieDetails = async (req, res) => {
   }
 }
 
+const createMovie = async (req, res) => {
+try {
+  const movie = await new Movies(req.body)
+  await movie.save()
+  return res.status(201).json({
+      movie
+  })
+} catch (error) {
+  return res.status(500).json({ error: error.message })
+}
+}
+
 const deleteMovie = async (req, res) => {
   try {
       const { id } = req.params
@@ -52,5 +64,6 @@ const deleteMovie = async (req, res) => {
 module.exports = {
   getAllMovies,
   getMovieDetails,
-  deleteMovie
+  deleteMovie,
+  createMovie
 }

@@ -19,18 +19,23 @@ app.get('/', (req, res) => {
 })
 
 // gets movies
-app.get('/movies', moviesController.getAllMovies)
+//app.get('/movies', moviesController.getAllMovies)
 
 // gets everything related to that movie. Movie as parent and reviews and actors as children
-app.get('/movies/:id', moviesController.getMovieDetails)
+//app.get('/movies/:id', moviesController.getMovieDetails)
 
 // gets all reviews
-app.get('/reviews', reviewsController.getAllReviews)
+//app.get('/reviews', reviewsController.getAllReviews)
 
 // gets all actors
-app.get('/actors', actorsController.getAllActors)
+//app.get('/actors', actorsController.getAllActors)
 
-// deletes a review by id
+// creates 
+// app.post('/actors', actorsController.createActor)
+// app.post('/movies', moviesController.createMovie)
+// app.post('/review', reviewsController.createReview)
+
+// deletes by id
 //app.delete('/movies/:id', reviewsController.deleteReview)
 //app.delete('/movies/:id', actorsController.deleteActor)
 //app.delete('/movies/:id', moviesController.deleteMovie)

@@ -9,6 +9,18 @@ const getAllReviews = async (req, res) => {
   }
 }
 
+const createReview = async (req, res) => {
+  try {
+    const review = await new Reviews(req.body)
+    await review.save()
+    return res.status(201).json({
+        review
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+  }
+
 const deleteReview = async (req, res) => {
   try {
       const { id } = req.params
@@ -24,5 +36,6 @@ const deleteReview = async (req, res) => {
 
 module.exports = {
   getAllReviews,
-  deleteReview
+  deleteReview,
+  createReview
 }

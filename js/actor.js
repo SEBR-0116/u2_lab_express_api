@@ -3,7 +3,7 @@ let input_actor = document.querySelector('#input-actor')
 
 //buttons
 let search_actor_btn = document.querySelector('#search-actor-btn')
-let submit_btn =document.querySelector('#submit')
+let submit_btn =document.querySelector('#submit-btn')
 
 
 //images
@@ -101,10 +101,7 @@ async function get_All_Actros_Thumbnail(){
 
 async function createNewActor(){
 
-    try{
-
-        
-        
+    try{     
         axios.post(`http://localhost:3001/actors`,{
             name: name_input.value,
             dob: new Date(dob_input.value).toDateString(),
@@ -115,7 +112,7 @@ async function createNewActor(){
             nationality: nationality_input.value,
             is_active: is_active_input.value
         })
-        .then((response) => console.log(response))
+        .then((response) =>  response)
         .catch((error) => console.log(error))
     }catch(error)
     {

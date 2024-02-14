@@ -76,6 +76,7 @@ const getAllActorReviewofMovie = async (request,response) => {
         // const mergedResult = {...movieBy_id,...actorBy_movie_id,...reviewBy_movie_id}
         // //console.log(`merger Result : ${mergedResult}`)
 
+        
         const movie_Details_of_Actors_n_Reviews = await Movie.findOne({
             where: {movie_id:id },
             include : [
@@ -139,7 +140,7 @@ const getMovieByTitle = async (request,response) => {
     }
 }
 
-//Get Movie by year
+//Get Movie by year got the help of Google and CHatGPT for reguler expression
 const getMovieByYear = async (request,response) => {
     try{
         const req_movie_year = request.params.year

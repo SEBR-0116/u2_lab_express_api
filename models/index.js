@@ -1,9 +1,3 @@
-//next:
-// - installing express...
-// - installing body parser??
-// - installing morgan??
-// - add gitignore
-
 const mongoose = require('mongoose')
 const ActorSchema = require('./actor')
 const MovieSchema = require('./movie')

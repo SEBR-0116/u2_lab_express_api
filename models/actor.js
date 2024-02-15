@@ -12,6 +12,6 @@ const Actor = new Schema(
     { timestamps: true }
 )
 
-module.exports = mongoose.model('actors', Actor)
+//module.exports = mongoose.model('actors', Actor)
 // alt:
-// module.exports = Actor
+module.exports = Actor

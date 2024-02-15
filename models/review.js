@@ -10,7 +10,6 @@ const Review = new Schema(
     { timestamps: true}
 )
 
-module.exports = mongoose.model('reviews', Review)
+//module.exports = mongoose.model('reviews', Review)
 
-// alt:
-// module.exports = Review
+module.exports = Review

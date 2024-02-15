@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="movies.js"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <!--favicon from: https://pixabay.com/vectors/film-cinema-movie-video-158157/-->
+    <title>Movies</title>
+</head>
+<body>
+    <h1>Movies</h1>
+    <input id="textInput" type="text" placeholder="Search title">
+    <button id="submitButton">Go</button>
+
+    <h2 id="movie-title"></h2>
+    
+    <p><span id="year"></span><span id="rating"></span><span id="runtime"></span></p>
+    <img id="poster" src="">
+
+    <div id="actors"></div>
+    
+    <div id="oscars">
+        <h3>Oscars</h3>
+        <div>
+            <h5>Wins</h5>
+            <p id="no-wins">This movie won no Oscars.</p>
+            <ul id="wins"></ul>
+        </div>
+        <div>
+            <h5>Nominations</h5>
+            <p id="no-noms">This movie was either not nominated for any Oscars or won every category it was nominated for.</p>
+            <ul id="noms"></ul>
+        </div>
+    </div>
+
+    <h3 id="review-heading">Reviews</h3>
+    <div id="reviews">
+    </div>
+
+    <p>Didn't find the movie you were looking for?</p>
+    <div>
+        <form id="movies-add">
+            <label for="mtitle">Title:</label>
+            <input type="text" id="mtitle" name="mtitle" placeholder="e.g., Crouching Tiger, Hidden Dragon"><br>
+            <label for="mruntime">Runtime (in minutes):</label>
+            <input type="number" id="mruntime" name="mruntime" placeholder="e.g., 120"><br>
+            <label for="myear">Release Year:</label>
+            <input type="number" id="myear" name="myear" placeholder="e.g., 2000"><br>
+            <label for="mrating">Rating:</label>
+            <input type="text" id="mrating" name="mrating" placeholder="e.g., PG-13"><br>
+            <label for="mdescription">Description:</label>
+            <input type="text" id="mdescription" name="mdescription" placeholder="e.g., A young Chinese warrior steals a sword from a famed swordsman and then escapes into a world of romantic adventure with a mysterious man in the frontier of the nation."><br>
+            <label for="mactors">Actors:</label>
+            <input type="text" id="mactors" name="mactors" placeholder="e.g., Zhang Ziyi, Michelle Yeoh, Chow Yun-Fat"><br>
+            <label for="mwins">Oscar Wins:</label>
+            <input type="text" id="mwins" name="mwins" placeholder="e.g., Best Foreign Language Film, Best Art Direction, Best Cinematography, Best Original Score"><br>
+            <label for="mnoms">Oscar Nominations:</label>
+            <input type="text" id="mnoms" name="mnoms" placeholder="e.g., Best Picture, Best Director, Best Adapted Screenplay, Best Costume Design, Best Film Editing, Best Original Song"><br>
+            <label for="mposter">Poster link:</label>
+            <input type="url" id="mposter" name="mposter" placeholder="e.g., https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Crouching_Tiger%2C_Hidden_Dragon_%28Chinese_poster%29.png/220px-Crouching_Tiger%2C_Hidden_Dragon_%28Chinese_poster%29.png">
+        </form>
+        <button id="add-movie">Add new movie</button>
+        <select name="edit-actors" id="edit-actors">
+            <option value="add">Add</option>
+            <option value="delete">Delete</option>
+        </select>
+        <button id="edit-movie" value="">Edit this movie</button>
+        <button id="delete-movie" value="">Delete this movie</button>
+    </div>
+
+    <p>Didn't find the review you were looking for?</p>
+    <div>
+        <form id="reviews-change">
+            <label for="rscore">Score:</label>
+            <input type="number" min="0" max="100" id="rscore" name="rscore"><br>
+            <label for="rreviewer">Reviewer:</label>
+            <input type="text" id="rreviewer" name="rreviewer"><br>
+            <label for="rcomment">Comment:</label>
+            <input type="text" id="rcomment" name="rcomment"><br>
+            <label for="rurl">Link:</label>
+            <input type="url" id="rurl" name="rurl"><br>
+            <label for="rmovie">Movie:</label>
+            <input type="text" id="rmovie" name="rmovie">
+
+        </form>
+        <button id="submit-review">Submit</button>
+    </div>
+</body>
+</html>

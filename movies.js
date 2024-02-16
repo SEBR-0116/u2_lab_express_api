@@ -132,7 +132,7 @@ const addMovie = () => {
     const winsArray = wins.split(', ')
     const nomsArray = noms.split(', ')
 
-
+  
     axios.post("http://localhost:3001/movies/add", {
         title: title,
         runtime: runtime,
@@ -250,3 +250,4 @@ editActors.addEventListener('change', () => {
     const index = editActors.selectedIndex
     query = typeOfQuery.options[index].value
 })
+
